@@ -4,9 +4,9 @@ const Attendant = require("./src/domain/attendant");
 
 
 // create new ParkingLot
-const parkingLot = new ParkingLot(1);
+const parkingLot = new ParkingLot(3);
 const parkingLot2 = new ParkingLot(1);
-const parkingLot3 = new ParkingLot(30);
+const parkingLot3 = new ParkingLot(1);
 
 
 // create new Car
@@ -43,21 +43,22 @@ attendant.register(parkingLot3);
 
 // park car using attendant
 vallet_ticket_car1 = attendant.park(car1);
-vallet_ticket_car2 = attendant.park(car2);
-// vallet_ticket_car3 = attendant.park(car3);
 console.log(vallet_ticket_car1);
+vallet_ticket_car2 = attendant.park(car2);
 console.log(vallet_ticket_car2);
-// console.log(vallet_ticket_car3);
+vallet_ticket_car3 = attendant.park(car3);
+console.log(vallet_ticket_car3);
 
 
 // unpark car using attendant
 console.log(attendant.unpark(vallet_ticket_car1, car1.plate));
 console.log(attendant.unpark(vallet_ticket_car2, car2.plate));
+console.log(attendant.unpark(vallet_ticket_car3, car3.plate));
 
 
-// // park car using attendant
-// vallet_ticket_car3 = attendant.park(car3);
-// console.log(vallet_ticket_car3);
-// // park the same car using attendant
-// vallet_ticket_car4 = attendant.park(car3);
-// console.log(vallet_ticket_car4);
+// park car using attendant
+vallet_ticket_car3 = attendant.park(car3);
+console.log(vallet_ticket_car3);
+// park the same car using attendant
+vallet_ticket_car4 = attendant.park(car3);
+console.log(vallet_ticket_car4);

@@ -35,9 +35,9 @@ class ParkingLot {
         if (this.#availableSpaces === 0) throw new Error("No available spaces");
         
         this.#parkingSlot.push(car);
+        this.#availableSpaces--;
         const carIndex = this.#parkingSlot.indexOf(car);
         const ticketNumber = this.getKeyNumber(car, carIndex);
-        this.#availableSpaces--;
         
         return new ParkingTicket(ticketNumber);
     }
@@ -46,8 +46,8 @@ class ParkingLot {
         if (!(ticket instanceof ParkingTicket)) throw new Error("Invalid ticket");
         
         if (this.#lot[ticket.ticketNumber].car.plate === carPlate) {
-            this.#parkingSlot.splice(this.#lot[ticket.ticketNumber].index, 1);
             const customer_car = this.#lot[ticket.ticketNumber].car;
+            this.#parkingSlot.splice(this.#lot[ticket.ticketNumber].index, 1);
             this.#availableSpaces++;
             
             delete this.#lot[ticket.ticketNumber];
